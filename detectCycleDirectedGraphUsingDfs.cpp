@@ -30,8 +30,6 @@ ll dfs(ll s,ll visited[],ll recst[])
      
   
       a=vec[s][i];
-       if(s==3)
-       cout<<a<<endl;
       if(visited[a]==0)
         {
           if(dfs(a,visited,recst)==1)
@@ -54,12 +52,10 @@ int main()
       
     ll n,m,x,y,i;
     cin>>n>>m;
-    f(i,0,m)
-    {
+    f(i,0,m){
        cin>>x>>y;
        vec[x].push_back(y);
-      
-    }
+       }
 
     ll visited[n];ll recst[n];
     f(i,0,n)
@@ -73,12 +69,9 @@ int main()
          {
          x=dfs(i,visited,recst);
          if(x==1)
-         {
-           cout<<"Cycle is present\n";
-             break;
+            break;
          }
 
-         }
     }
        if(x==1)
           cout<<"Cycle is present\n";
