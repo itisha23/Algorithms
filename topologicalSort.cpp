@@ -48,8 +48,6 @@ int main()
        adj[y].push_back(x);
     }
     iscycle(1,ans);
-    if(ans==1)
-    cout<<"Sandro fails.";
     else
     {
        ll indegree[n+1];
