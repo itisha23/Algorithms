@@ -20,11 +20,8 @@ vector<ll>vec[100];
 ll dfs(ll s,ll visited[],ll recst[])
 {
    ll i,a;
-  if(visited[s]==0)
-    {
      visited[s]=1;
      recst[s]=1;
-    }
   f(i,0,vec[s].size())
    {
      
@@ -67,7 +64,7 @@ int main()
     {
          if(visited[i]==0)
          {
-         x=dfs(i,visited,recst);
+         x=dfs(i,visited,recst);//That is break as soon as you get the first cycle.
          if(x==1)
             break;
          }
