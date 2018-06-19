@@ -33,8 +33,8 @@ int main(){
         i=1;
        while(i<=n){
            for(j=0;j<vec[i].size();j++) {
-               if(dist[vec[i][j].first]>dist[i]+vec[i][j]).second;
-                  dist[vec[i][j].first]=dist[i]+vec[i][j]).second;
+               if(dist[vec[i][j].first]>dist[i]+vec[i][j].second);
+                  dist[vec[i][j].first]=dist[i]+vec[i][j].second;
                
            }
            i++;
