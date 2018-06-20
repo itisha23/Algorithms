@@ -45,7 +45,7 @@ int main()
           for(j=0;j<=cost;j++)
           {
               if(j-arr[i]>=0)
-              dp[i][j]=dp[i][j-arr[i]]+dp[i+1][j];
+              dp[i][j]=dp[i][j]-arr[i]]+dp[i+1][j];
               else
               dp[i][j]=dp[i+1][j];
           }
