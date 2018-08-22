@@ -3,7 +3,7 @@
 /* The below code does */
 // C++ program to print a matrix in spiral
 // form.
-#include
+#include <bits/stdc++.h>
 using namespace std;
 
 const int MAX = 100;
@@ -11,47 +11,59 @@ const int MAX = 100;
 void printSpiral(int mat[][MAX], int r, int c)
 {
 
-int i, a = 3, b = 3,j,flag=1;
+    int i, a, b,j,flag=1;
+    cin>>a>>b;
 
-int low_row = a;
-int low_column =b;
-int high_row =a+1;
-int high_column =b+1;
+    int low_row = a;
+    int low_column =b;
+    int high_row =a+1;
+    int high_column =b+1;
 
-while (flag) {
+    while (flag)
+    {
 
-flag=0;
-i=low_row;
-if(low_row>=0)
-{
-flag=1;
-for (j= max(low_column,0); j<= high_column && j<c; ++j)
-cout << mat[i][j] << " ";
+     flag=0;
+     
+     i=low_row;
+     if(low_row>=0)
+        {
+         flag=1;
+        for (j= max(low_column,0); j<= high_column && j<c; ++j)
+        cout << mat[i][j] << " ";
 
-}
-low_row –;
+        }
+    low_row --;
 
-j=high_column;
-if(j<c)
-{
-flag=1;
-for (i = max(low_row + 2,0); i <= high_row && i < r; ++i)
-cout << mat[i][j] << " ";
+    j=high_column;
+    if(j<c)
+        {
+            flag=1;
+            for (i = max(low_row + 2,0); i <= high_row && i < r; ++i)
+            cout << mat[i][j] << " ";
+            
+        }
+    high_column++;;
 
-}
-high_column++;;
+    i=high_row;
+    if(i<r)
+    {
+        flag=1;
+        for(j=max(high_column-2,c-1);j>=low_column-1&&j>=0;j--)
+           cout<<mat[i][j]<<" ";    
+    }
+    high_row++;
 
-i=high_row;
-if(i= low_column -1 &&	j>= 0;j–)
-cout << mat[i][j] <=0)
-{
-flag=1;
-for (i =min( high_row – 2,r-1); i>=(low_row+1) && i >= 0 ; –i)
-cout << mat[i][j] << " ";
+    j=low_column-1;
+    if(j>=0)
+    {
+        flag=1;
+        for (i =min( high_row-2,r-1); i>=(low_row+1) && i >= 0 ;i--)
+        cout << mat[i][j] << " ";
+    }
+    low_column--;
 
-}
-low_column–;
-}
+        
+    }
 cout << endl;
 }
 
