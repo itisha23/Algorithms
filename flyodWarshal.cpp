@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define f(i,a,b) for(i=a;i<b;i++)
 
 
 // Here the graph is represented as array of edges.
