@@ -19,4 +19,7 @@ int remove_duplicate(int arr[],int n)
    cout<<endl;*/
    
    return j+1;
+   
+   // here j+1 returns the number of elements in the array.
+   
 }
