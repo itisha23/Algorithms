@@ -1,72 +1,58 @@
-int func(const vector<int> &vec,int start,int end,int key)
-{
-   // cout<<"hi";
-    int mid,flag=0;
-    while(start<=end)
-    {
-        mid=(start+end)/2;
-        if(vec[mid]==key)
-        {
-             flag=1;
-             break;
-        }
-        
-        else if(vec[mid]>key)
-        end=mid-1;
-        else
-        start=mid+1;
-    }
-    if(flag==0)
-    return -1;
-    else
-    return mid;
-}
 
+
+int pivot(const vector<int>&vec,int low,int high)
+{
+    while(low<=high)
+    {
+        int mid=(low+high)/2;
+        if(vec[mid]>vec[mid+1])
+         return mid;
+        
+        if(vec[low]>vec[mid])
+        high=mid-1;
+        
+        else
+        low=mid+1;
+    }
+    
+    return high;
+}
 
 int Solution::search(const vector<int> &vec, int key) {
     
-    int ind,n,i,a,start,end,flag=0,mid;
-    n=vec.size();//cout<<n<<endl;
-    
-    start=0;end=n-1;
-    while(start<=end)
-    {
-        mid=(start+end)/2;
-        if(mid+1<n && vec[mid+1]<vec[mid])
-        {
-          ind=mid;
-          flag=1;
-          break;
-        }
-        else if(vec[start]>vec[mid])
-          end=mid-1;
-        else
-          start=mid+1;
-    }
-    if(flag==0)
-    ind=n-1;
-   //cout<<ind<<endl;
-   if(vec[ind]==key)
-    return ind;
-    else if(key>vec[ind])
-    return -1;
-    else
-    {
-        start=0;end=n-1;
-        if(key>=vec[start])
-        {
-            end=ind;
-            start=start;
-            a=func(vec,start,end,key);
-        }
-        else
-        {
-            start=ind+1;
-            end=end;
-            a=func(vec,start,end,key);
-        }
-        
-        return a;
-    }
+// FIRST WE TRY TO FIND THE LAST ELELMENT OF THE ACTUAL ARRAY. THAT WILL BE OUR PIVOT. IN THE ROTATED SORTED ARRAY THAT ELEMENT IS
+   //THE ELEMENT AFTER WHICH THE NEXT ELEMENT IS SMALLEST. ALSO IF THE ARRAY IS ALRAEDY SORTED THE OUR FUCNTION SHOULD RETURN
+   // LAST INDEX OF THE ARRAY.
    
+   
+   
+    int n=vec.size();
+   int ind=pivot(vec,0,n-1);
+   
+   if(vec[ind]==key)
+   return ind;
+   
+   // ALREADY SORTED
+   if(ind==n-1)
+   {
+       if(binary_search(vec.begin(),vec.end(),key))
+       return lower_bound(vec.begin(),vec.end(),key)-vec.begin();
+         return -1;
+   }
+   else
+   {
+      // CHECK FOR FIRST HALF BEFORE INDEX  
+      if(binary_search(vec.begin(),vec.begin()+ind,key))
+       return lower_bound(vec.begin(),vec.begin()+ind,key)-vec.begin();// THIS WILL GIVE ORIGINAL ONLY. NOT CONSIDERING 0
+      // BUT FOR END IT WILL CONSIDER LAST SPECIFIED ONLY.
+      
+       
+       else if(binary_search(vec.begin()+ind+1,vec.end(),key))
+       return lower_bound(vec.begin()+ind+1,vec.end(),key)-vec.begin();
+       
+       return -1;
+       
+       
+   }
+ 
 }
