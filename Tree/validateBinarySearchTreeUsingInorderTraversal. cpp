@@ -1,0 +1,24 @@
+
+//https://practice.geeksforgeeks.org/problems/check-for-bst/1
+
+void func(Node *root,int &flag,int &prev)
+{
+    if(root==NULL)
+    return;
+    func(root->left,flag,prev);
+    if(root->data<prev)
+    flag=1;
+    prev=root->data;
+    func(root->right,flag,prev);
+}
+
+
+bool isBST(Node* root) {
+   int flag=0,prev=INT_MIN;
+   func(root,flag,prev);
+   if(flag==0)
+   return true;
+   else
+   return false;
+}  
+
