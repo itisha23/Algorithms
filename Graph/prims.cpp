@@ -33,7 +33,7 @@ int main()
     f(i,1,n+1)
     visited[i]=0;
     pq.push(make_pair(0,1));
-    visited[1]=1;
+
     pair<ll,ll>p;
     while(pq.empty()!=1)
     {
