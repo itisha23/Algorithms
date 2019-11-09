@@ -30,7 +30,6 @@ void merge(Node *root1, Node *root2)
                 curr2=curr2->left;
             }
             
-            //cout<<st1.size()<<" "<<st2.size()<<endl;
             if(st1.size()!=0 && st2.size()!=0)
             {
                 if(st1.top()->data<st2.top()->data)

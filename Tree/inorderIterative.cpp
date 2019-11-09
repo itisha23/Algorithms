@@ -28,7 +28,6 @@ void inorderiterative(struct node *root)
    
     while(s.size()!=  0)
     {
-    cout<<"hi";
         while(current!=NULL)
         {
             current=current->left;
