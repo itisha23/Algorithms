@@ -29,3 +29,59 @@ struct Node *findLCA(struct Node* root, int n1, int n2)
     // Otherwise check if left subtree or right subtree is LCA 
     return (left_lca != NULL)? left_lca: right_lca; 
 } 
+
+
+//But this method assumes that both keys are present in tree. How we change the solution so that it can return NUll  even if  one key is absent in tree using two variables
+// Method2
+
+struct Node* findLCAUtil(node * root, int n1, int n2, bool a, bool b) {
+
+    if(root == NULL){
+        return NULL;
+    }
+
+    if(root ->data  == n1) {
+        a = true;
+        return root;
+    }
+
+    if(root ->data == n2){
+        b= true;
+        return root;
+    }
+
+    node * left = func(root->left, n1, n2, a, b);
+    node *right = func(root->right, n1, n2, a, b);
+
+    if(left && right){
+        return root;
+    }
+
+    return left != NULL? left : right;
+}
+
+bool findInSubtree(node *root, int key) {
+
+    if(root == NULL)
+        return false;
+
+    if(root ->data == key)
+        return true;
+
+    return findInSubTree(root->left, key) || findInSubtree(root->right, key);
+
+}
+
+node *findLCA(node *root, int n1, int n2) {
+
+    int a = false; int b = false;
+
+    node *lca = findLCAUtil(root, a, b);
+
+    if(a &&  b || a &findInSubtree(lca, n2) || b && findInSubtree(lca, n1))
+        return lca;
+
+    return NULL;
+}
+
+//T(n) : O(n)
