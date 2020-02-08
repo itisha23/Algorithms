@@ -60,6 +60,19 @@ Node* buildTree(int in[],int pre[], int inStrt, int inEnd)
     newnode ->right = buildTree(in, pre, index+1, inEnd);
     
     return newnode;
+
+// For a single tese case uyou can even use static variable.
+
+//Optimisation is we can store the elements in unordered map in C++ so that search can be done in O(1) time
+
+unordered_map<int, int> buildMap(int  in[]){
+
+    unordered_map<int, int>mp;
+
+    for(i=0; i<size; i++)
+        map[in[i]] =i;
 }
 
+// now just access map instead of searching in buildTreeCode;
+=======
 // For a single tese case uyou can even use static variable.

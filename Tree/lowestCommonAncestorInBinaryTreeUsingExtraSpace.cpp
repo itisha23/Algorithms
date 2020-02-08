@@ -32,9 +32,12 @@ Node * LCA(Node* root ,int n1 ,int n2 )
 {
     int i;
     bool ispresent1,ispresent2;
+
    vector<struct Node*>path1;
    vector<struct Node*>path2;
+
    ispresent1=func(root,path1,n1);
+   
    struct Node *ptr;
   ispresent2=func(root,path2,n2);
    if(ispresent1==false||ispresent2==false)
