@@ -60,7 +60,6 @@ Node* buildTree(int in[],int pre[], int inStrt, int inEnd)
     newnode ->right = buildTree(in, pre, index+1, inEnd);
     
     return newnode;
-}
 
 // For a single tese case uyou can even use static variable.
 
@@ -75,3 +74,5 @@ unordered_map<int, int> buildMap(int  in[]){
 }
 
 // now just access map instead of searching in buildTreeCode;
+=======
+// For a single tese case uyou can even use static variable.
