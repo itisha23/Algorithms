@@ -14,33 +14,6 @@ struct node *create(int x)
     newnode->right=NULL;
     return newnode;
 }
-void inorderiterative(struct node *root)
-{
-    if(root==NULL)
-    return;
-    stack<struct node*>s;
-    struct node* current,*t;
-    current=root;
-    cout<<current->data<<endl;
-    s.push(current);
-     int a=s.size();
-    cout<<a;
-   
-    while(s.size()!=  0)
-    {
-        while(current!=NULL)
-        {
-            current=current->left;
-            s.push(current);
-        }
-        t=s.top();s.pop();
-        cout<<t->data<<" ";
-        current=t->right;
-        if(current!=NULL)
-        s.push(current);
-    }
-    
-}
 int main()
  {
 	struct node *root;
@@ -54,3 +27,35 @@ int main()
         cout<<endl;
         inorderiterative(root);
   }
+
+
+// inorder iterative 
+
+void func(node *root) {
+
+    stack<Node*>st;
+    curr = root;
+
+    while(curr) {
+
+        while(curr) {
+            st.push(curr);
+            curr = curr->left;
+        }
+
+        if(st.empty()){
+            break;
+        }
+
+        else {
+            x = st.top();
+            st.pop();
+
+            cout<<x->data<<endl;
+
+            if(x ->right){
+                curr = x;
+            }
+        }
+    }
+}
