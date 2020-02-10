@@ -36,7 +36,7 @@ void func(node *root) {
     stack<Node*>st;
     curr = root;
 
-    while(curr) {
+    while(1) {
 
         while(curr) {
             st.push(curr);
@@ -54,7 +54,7 @@ void func(node *root) {
             cout<<x->data<<endl;
 
             if(x ->right){
-                curr = x;
+                curr = x->right;
             }
         }
     }
