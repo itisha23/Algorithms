@@ -1,0 +1,68 @@
+
+Implement k queues single array
+Second Technical
+We have n machines in which n tasks can run, and we have common cooling time t(in cycles) for all the machines.Certain conditions need to be followed –
+
+Task can run only on its assigned machine.Each task is assigned its own separate machine.
+Eg.Task1 runs on Machine1. Task2 can run on machine2.Task3 on machine3.
+Initially all machines are cool and tasks can run on them.
+At a time,only 1 task can run on its assigned machine.No 2 tasks can run simultaneously even on their assigned machines.
+Machine needs to be cooled for the cooling time period t after its task’s run is over.
+Each task takes 1 cycle to run and machine takes t cycles to cool.
+We are given an array which contains the order in which tasks are going to run on the machines. So we need to find out how much cycles in total it would take to run those tasks.
+Eg.
+n = 3
+int arr[] = {3 ,1, 2, 1, 2}
+int t = 2(cooling time)
+Output=6
+Explanation-
+In the start task 3 can run on third machine(T0)
+Task 1 runs on first machine(T1)
+Task2 on second machine(T2)
+Now task 1 waits since cooling time is 2 (T3 gone in waiting)
+Task 1 runs now(T4)
+Task 2 runs on second machine as cooling time of second machine has passed (T5)
+Total cycles consumed to run all tasks =6 cycles
+
+We are given two unsorted arrays, size can be different we need to swap two elements one from first array and second from second array such that the sum of each individual array becomes equal after swapping.
+Eg
+int a[] = {4, 3, 5}
+int b[] = {9, 1, 6}
+Output-{4, 6}
+4 from array a and 6 from array b are swapped to get equal sum of each array as 14.
+Solution: GeeksforGeeks Link
+
+Third Technical
+Few questions from my project.Then he asked me about structure of C program.
+Page fault and swap space.
+
+What is Caching?
+Implement LRU(Only logic was asked like which data structures you would use and how) and then 2 coding questions
+Say you are given a tree and a target node, so we need to restructure the tree when target node becomes the root.(node can have more than 2 child)Keep in mind all the cases.
+
+Eg- target node = 4
+
+Count Inversions in running stream of integers.(I gave answer using bst)
+Reference: GeeksforGeeks Link
+Bar Raiser-
+
+Given initial capital W and n projects and the capital being used in each and the profit earned from each.You need to select k projects out of these n projects such that at the end your capital is maximised.
+Eg-
+W=3
+int capital[] = {9,2,3,1}
+int profit[] = {13,5,2,7}
+int k = 2
+output- 13
+Explanation- We choose project with capital 1 and new capital becomes(3+7-1=9)
+now we choose project with capital 9 and gets profit of 13 so final capital becomes(9+13-9=13)
+I gave answer by initially sorting the array according to capital and then selecting those projects which have capital required less than or equal to initial capital and insert them in max heap, after extracting the top node decrease k and my capital would change and now i can insert new projects from remaining in my max heap which have capital required less than or equal to new capital and repeat this step till k becomes 0.
+
+Verdict-SELECTED 😀
+
+GEEKSFORGEEKS, indeed was a great help :D.
+Tips-Don’t panic ..keep trying different approaches ..they will help you when you are stuck..Try to do as many experiences from geeks.Do all the questions under Amazon tag from geeksforgeeks.
+
+If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
+
+Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above.
+

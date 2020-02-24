@@ -43,6 +43,7 @@ void kStacks::push(int stno, int ele){
 
     if(free == -1){
         cout<<"stack overflow";
+        return;
     }
 
     int ind = free;
@@ -55,9 +56,11 @@ void kStacks::push(int stno, int ele){
 }
 
 int kStacks::pop(int stno) {
-    if(free == 0)
+    if(top[stno] == -1) {
         cout<<" Stack underflow\n";
-
+        return ;
+    }
+       
     int ind = top[stno];
     int ele = arr[ind];
 
