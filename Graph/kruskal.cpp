@@ -61,3 +61,9 @@ int main()
  }
 cout<<mstsum<<endl;
 }
+
+
+//Time Complexity: O(ElogE) or O(ElogV). Sorting of edges takes O(ELogE) time. After sorting, we iterate through all edges and apply find-union algorithm. T
+//he find and union operations can take atmost O(LogV) time. So overall complexity is O(ELogE + ELogV) time. 
+//The value of E can be atmost O(V2), so O(LogV) are O(LogE) same. Therefore, overall time complexity is O(ElogE) or O(ElogV)
+

@@ -26,7 +26,13 @@ int main()
     f(i,0,n)
     {
         f(j,0,n)
-        dist[i][j]=min(dist[i][j],dist[i][k]+dist[k+1][j]);
+        if(dist[i][k] != INF && dist[k+1][j]!= INF) { // To avoid overflow.
+          dist[i][j]=min(dist[i][j],dist[i][k]+dist[k][j]);
+        }
+        
     }
   }
 }
+
+//Also, the value of INF can be taken as INT_MAX from limits.h to make sure that we handle maximum possible value. When we take INF as INT_MAX, we need to change the if condition in the 
+//above program to avoid arithmetic overflow.

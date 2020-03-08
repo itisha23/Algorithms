@@ -1,15 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main() {
-    map<int, int>mp;
-    mp[4] = 5;
-    mp[7] = 10;
-    mp[10] = 0;
+typedef long long int ll;
+#define f(i,a,b) for(i=a;i<b;i++)
 
-    for(auto it = mp.begin(); it!=mp.end();it++){
-        cout<<it->first<<endl;
-
-        if(it->first == 7)
-            mp[5] = 11;
-    }
+bool myComp(pair<int, pair<int, int>>p1, pair<int, pair<int, int>>p2){
+    return p1.second.second < p2.second.second;
 }
+
+
+int main() {
+
+    vector<pair<int, pair<int, int>>>vec;
+
+    vec.push_back(make_pair(1, make_pair(2, 7)));
+    vec.push_back(make_pair(3, make_pair(4, 2)));
+
+    sort(vec.begin(), vec.end(), myComp);
+
+    cout<<vec[0].second.second<<endl;
+    cout<<vec[1].second.second<<endl;
+}
+
+//
