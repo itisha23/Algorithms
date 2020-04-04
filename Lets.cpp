@@ -1,31 +1,22 @@
-void func(vector<string>keywords, vector<vector<string>>reviews) {
+#include<bits/stdc++.h>
+using namespace std;
 
-    set<string>se;
-    for(i=0; i<keywords.size(); i++){
-        se.insert(keywords[i]);
+
+struct comp{
+    bool operator()(pair<int, int>p1, pair<int, int>p2) {
+        return p1.second > p2.second;
     }
+};
 
-    for(i=0; i<reviews.size(); i++) {
+int main() {
 
-        for(j=0; j<reviews[i].size(); j++) {
+    map<int, int, comp>mp;
 
-            string s="";
-            while(j< reviews[i][j].size() && reviews[i][j]!=' ') {
-                s+=reviews[i][j];
-                j++;
-            }
+    mp[1] = 5;
+    mp[2] = 2;
+    mp[3] =0;
 
-            if(se.find(s) != se.end) {
-                if(mp.count(s)==0) {
-                    mp[s] = make_pair(1, i);
-                } else {
-                    if(mp[s].second != i)
-                        mp[s] = make_pair(mp[s].first+1, i); // only increase if the last review is not i
-                }
-            }
-
-        }
+    for (auto it = mp.begin(); it!=mp.end(); it++) {
+        cout<<it->first<<" "<<it-second<<endl;
     }
-
-    // Now add map elements in priority queue and perform k top elemennts.
-}
+} 

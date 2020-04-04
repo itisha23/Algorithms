@@ -43,4 +43,6 @@ vector<int>vec articulation(vector<int>vec[], int v) {
             dfs(i, i, -1, id, visited, id, low, ar, vec, outedges )
             art[x] = outeges > 1;
     }
+
+    // pritn art
 }
