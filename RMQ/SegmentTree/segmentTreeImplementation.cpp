@@ -56,7 +56,7 @@ int query(int tree[], int qstart, int qend, int start_sgtree, int end_sgtree, in
 }
 
 //T(n) : O(logn)
-oid updateValueUtil(int *st, int ss, int se, int i, int diff, int si)  
+void updateValueUtil(int *st, int ss, int se, int i, int diff, int si)  
 {  
     // Base Case: If the input index lies outside the range of  
     // this segment  

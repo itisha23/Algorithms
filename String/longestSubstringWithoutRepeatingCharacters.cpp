@@ -1,34 +1,55 @@
 class Solution {
 public:
-    int lengthOfLongestSubstring(string s) {
+    
+    int findRoot(int a, int root[]) {
         
-        int n=s.size(),i,j,ans=0;
-        int hash[256];
-        for(i=0;i<256;i++)
-            hash[i]=-1;
+        if(r == root[r])
+            return r;
+        return root[r]= findRoot(root[r], root);
         
-        i=0;
-        for(j=0;j<n;j++)
-        {
-            if(hash[s[j]]==-1)
-            {
-                hash[s[j]]=j;
-                ans=max(ans,j-i+1);
-            }
-            else if(hash[s[j]]!=-1 && hash[s[j]]<i)
-            {
-                hash[s[j]]=j;
-                ans=max(ans,j-i+1);
-            }
-            else
-            {
-                i=hash[s[j]]+1;
-                hash[s[j]]=j;
-                
-            }
-            //cout<<j<<" "<<ans<<endl;
+    }
+    
+    void union1(int a, int b, int root[]) {
+        
+        int root_a = findRoot(a, root);
+        int root_b = findRoot(b, root);
+        
+        root[root_b] = root_a;
+    }
+    string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
+        
+        int n = s.size(), i, j, k;
+        int root[n];
+        for(i=0; i<n; i++)
+            root[i] = i;
+        
+        for(i=0; i<pairs.size(); i++) {
+            union1(pairs[i][0], pairs[i][1], root);
         }
-        return ans;
+        
+        map<int, vector<int>>mp;
+        
+        for(i=0; i<n; i++)
+        {
+            mp[findRoot(i,root)].push_back(i);
+        }
+    
+        
+        for(auto it = mp.begin(); it!= mp.end(); it++) {
+            string x = "";
+            for(i=0; i<it->second.size(); i++)
+                x = x + s[it->second[i]];
+            
+            sort(x.begin(), x.end());
+            
+            k=0;
+            for(i=0; i<it->second.size(); i++)
+            {
+                s[it->second[i]] = x[k++];
+            }
+        }
+        
+        return s;
         
     }
 };
